@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header class="header">
+        <img class="imagen_header" src="./assets/Logo.png" alt="Logo Alura"> 
+    </header>
+    <main>
+        <section>
+            <div class="contendor_texto">
+                <textarea class="ingreso_texto" id="ingresoTexto" cols="30" rows="15" placeholder="Ingrese el texto aquí"></textarea>
+            </div>
+            
+            <div class="indicaciones">
+                <img class="imagen_exclamacion" src="./assets/bi_exclamation-circle-fill.png" alt="signo exclamación">
+                <h2 class="indicaciones_contenido">Solo letras minúsculas y sin acentos</h2>
+            </div>
+                
+            <div class="presentacion_botones">
+                <button class="contenido_boton_encriptar" onclick="visibilidad()">Encriptar</button>
+                <button class="contenido_boton_desencriptar" onclick="desencriptar()">Desencriptar</button>
+            </div>
+        </section>
+        <section class="contenido_derecha">
+            <div class="contendor_resultado">
+                <textarea class="resultado" id="resultadoTexto" cols="20" rows="7" readonly></textarea>
+            </div>
+            <img class="imagen_muñeco" src="./assets/Muñeco.png" alt="hombrecito sentado" id="muñeco">
+            <div class="contenedor_texto_derecha">
+                <h3 class="contenido_mensaje" id="mensajeIndicacion">Ningún mensaje fue encontrado</h3>
+                <p class="contenido_mensaje_texto" id="mensajeIndicacionDos">Ingresa el texto que deseas encriptar o desencriptar</p>
+            </div>
+                
+            <div class="contenedor_copiar">
+                <button class="contenido_copiar oculto" id="botonCopiar" onclick="copiar()">Copiar</button>
+            </div>
+                
+        </section>   
+            <div id="alertaCustom" class="custom_alert">
+                <div class="contenido_alerta">
+                <p id="mensajeAlerta"></p>
+                <button id="aceptarAlertaCustom" onclick="cerrarAlerta()">Aceptar</button>
+                </div>  
+            </div>
+            <div id="validacionAlerta" class="validacion_alerta">
+                <div class="contenido_alerta">
+                    <p id="validacionMensaje"></p>
+                    <button id="aceptarValidacionAlerta" onclick="cerrarValidacionAlerta()">Aceptar</button>
+                </div>
+            </div>
+    </main>
+    <footer class="footer">
+        <p class="footer_texto">Desarrollado por Daniela Guilino</p>
+    </footer>
+    <script src="challenge.js"></script>
+</body>
+</html>
