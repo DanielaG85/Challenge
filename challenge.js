@@ -1,10 +1,10 @@
 function validacionMinusculas(texto) {
-  const regex = /^[a-z\s?!]+$/; 
+  const regex = /^[a-zñ\s?!]+$/u; 
   return regex.test(texto);
 }
 
 function validacionAcentos(texto) {
-  const regex = /([àáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ])/g;
+  const regex = /([àáâãäåæçèéêëìíîïðòóôõöøùúûüýþÿ])/g; 
   return regex.test(texto);
 }
 
