@@ -205,6 +205,8 @@ main{
 
 .resultado{
     width: 100%;
+    min-height: 150px;
+    font-family: var(--fuente-inter);
     font-size: 1.5rem;
     font-weight: 400;
     color: var(--color-contenido);
@@ -213,6 +215,9 @@ main{
     outline: none;
     font-family: var(--fuente-inter);
     cursor: pointer;
+    display: block !important;
+    z-index: 100;
+    position: relative;
 }
 
 .contenido_mensaje_texto{
@@ -314,13 +319,11 @@ main{
     }
 
     .resultado{
-        width: 100%;            
-        min-height: 0;          
+        width: 100%;                     
         height: auto;          
         max-height: 6rem;      
         overflow: hidden;       
-        transition: all 0.3s ease-in-out; 
-        visibility: hidden;    
+             
     }
     
     .resultado.visible {
@@ -398,6 +401,16 @@ main{
         width: 90%;
         text-align: center;
         margin: 0 auto;
+    }
+
+    .resultado{
+        width: 100%;
+        height: auto;
+        min-height: 150px;
+        font-size: 1rem;
+        padding: 0.5rem;
+        margin-top: 1rem;
+        
     }
 }
 

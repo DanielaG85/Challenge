@@ -1,11 +1,10 @@
 function validacionMinusculas(texto) {
-  const regex = /^[a-zñ\s?!]+$/u; 
-  return regex.test(texto);
+  return /^[a-zñ\s?!]*$/u.test(texto);
 }
 
 function validacionAcentos(texto) {
-  const regex = /([àáâãäåæçèéêëìíîïðòóôõöøùúûüýþÿ])/g; 
-  return regex.test(texto);
+  const acentos = /[à-ÿ]/; 
+  return !acentos.test(texto);
 }
 
 function mostrarValidacionAlerta(mensaje) {
@@ -25,34 +24,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function actualizarResultado(texto) {
   let areaResultado = document.getElementById("resultadoTexto");
+  console.log("Texto que se asignará: ", texto);
   areaResultado.value = texto;
-
   
   if (areaResultado.classList.contains("hidden")) {
     areaResultado.classList.remove("hidden");
   }
+  console.log("Resultado actualizado: ", areaResultado.value);
 }
 
 function procesarTexto(opcion) {
-  let textoIngresado = document.getElementById("ingresoTexto").value;
+  const textoIngresado = document.getElementById("ingresoTexto").value.trim();
+  
+  if (textoIngresado === "") {
+    return;
+  }
 
-  if (validacionMinusculas(textoIngresado) && !validacionAcentos(textoIngresado)) {
+  if (validacionMinusculas(textoIngresado) && validacionAcentos(textoIngresado)) {
     let textoProcesado = opcion === 'encriptar' ? encriptar(textoIngresado) : desencriptar(textoIngresado);
 
+    console.log("Texto procesado: ", textoProcesado);
+    //actualiza el área de resultado con el texto procesado
     actualizarResultado(textoProcesado);
     document.getElementById("ingresoTexto").value = ""; // Limpia el área de texto de la izquierda
 
+    //oculta el muñeco y los mensajes
     document.getElementById("muñeco").style.visibility = "hidden";
     document.getElementById("mensajeIndicacion").style.visibility = "hidden";
     document.getElementById("mensajeIndicacionDos").style.visibility = "hidden";
+    //muestra el botón de copiar
     document.getElementById("botonCopiar").style.visibility = "visible";
 
     cerrarValidacionAlerta();
   } else {
-    document.getElementById("resultadoTexto").value = "";
+    
     mostrarValidacionAlerta("Ingresa sólo letras minúsculas y sin acentos");
   }
 }
+
 
 function encriptar(texto) {
   let llaves = [

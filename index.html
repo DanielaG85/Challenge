@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador</title>
     <link rel="stylesheet" href="./style.css">
+    <link href="/favicon.ico" type="image/x-icon" rel="icon" />
 </head>
 <body>
     <header class="header">
@@ -23,13 +24,13 @@
             </div>
                 
             <div class="presentacion_botones">
-                <button class="contenido_boton_encriptar" onclick="visibilidad()">Encriptar</button>
-                <button class="contenido_boton_desencriptar" onclick="desencriptar()">Desencriptar</button>
+                <button class="contenido_boton_encriptar" onclick="procesarTexto('encriptar')">Encriptar</button>
+                <button class="contenido_boton_desencriptar" onclick="procesarTexto('desencriptar')">Desencriptar</button>
             </div>
         </section>
         <section class="contenido_derecha">
-            <div class="contendor_resultado">
-                <textarea class="resultado" id="resultadoTexto" cols="20" rows="7" readonly></textarea>
+            <div class="contenedor_resultado">
+                <textarea class="resultado" id="resultadoTexto" cols="20" rows="7"></textarea>
             </div>
             <img class="imagen_muñeco" src="./assets/Muñeco.png" alt="hombrecito sentado" id="muñeco">
             <div class="contenedor_texto_derecha">
